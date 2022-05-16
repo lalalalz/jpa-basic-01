@@ -10,9 +10,15 @@ import java.time.LocalTime;
 
 @Data
 @Entity
+@SequenceGenerator(
+        name = "MEMBER_SEQ_GENERATOR",
+        sequenceName = "MY_SEQUENCES",
+        initialValue = 1,
+        allocationSize = 50
+)
 public class Member {
 
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")
     private Long id;
     private String name;
 //    @Column

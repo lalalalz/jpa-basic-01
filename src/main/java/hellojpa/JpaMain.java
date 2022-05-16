@@ -12,10 +12,14 @@ public class JpaMain {
         transaction.begin();
 
         Member firstMember = new Member();
-//        firstMember.setId(1L);
+        //        firstMember.setId(1L);
         firstMember.setName("TEST");
 
+        Member secondMember = new Member();
+        secondMember.setName("TEST2");
+
         entityManager.persist(firstMember);
+        //        entityManager.persist(secondMember);
 
         transaction.commit();
         entityManager.close();
