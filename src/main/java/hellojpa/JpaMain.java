@@ -11,6 +11,18 @@ public class JpaMain {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
 
+        Member firstMember = new Member();
+//        firstMember.setId(1L);
+        firstMember.setName("TEST");
+
+        entityManager.persist(firstMember);
+
+        transaction.commit();
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
+    public void enumTest(EntityManager entityManager) {
 //        Member member = new Member();
 //        member.setId(3L);
 //        member.setName("memberC");
@@ -24,14 +36,6 @@ public class JpaMain {
 //        member.setRoleType(RoleType.TEST);
 //
 //        entityManager.persist(member);
-
-        transaction.commit();
-        entityManager.close();
-        entityManagerFactory.close();
-    }
-
-    public void enumTest(EntityManager entityManager) {
-
     }
 
 //    public void nullable(EntityManager entityManager) {
