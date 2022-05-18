@@ -11,6 +11,13 @@ public class JpaMain {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
 
+
+        transaction.commit();
+        entityManager.close();
+        entityManagerFactory.close();
+    }
+
+    private static void test1(EntityManager entityManager) {
         Member firstMember = new Member();
         //        firstMember.setId(1L);
         firstMember.setName("TEST");
@@ -20,10 +27,6 @@ public class JpaMain {
 
         entityManager.persist(firstMember);
         //        entityManager.persist(secondMember);
-
-        transaction.commit();
-        entityManager.close();
-        entityManagerFactory.close();
     }
 
     public void enumTest(EntityManager entityManager) {

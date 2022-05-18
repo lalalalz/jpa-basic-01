@@ -10,33 +10,14 @@ import java.time.LocalTime;
 
 @Data
 @Entity
-@SequenceGenerator(
-        name = "MEMBER_SEQ_GENERATOR",
-        sequenceName = "MY_SEQUENCES",
-        initialValue = 1,
-        allocationSize = 50
-)
 public class Member {
 
-    @Id @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")
+    @Id @GeneratedValue
+    @Column("MEMBER_ID")
     private Long id;
-    private String name;
-//    @Column
-//    private String name;
-//    @Column(nullable = false)
-//    private Integer age;
-//
-//    @Enumerated(EnumType.STRING)
-//    private RoleType roleType;
-//
-//    private LocalDateTime testLocalDateTime;
-//    private LocalTime testLocalTime;
-//
-//    @Lob
-//    private String desc;
-//    @Lob
-//    private BigInteger code;
-//
-//    @Transient
-//    private String temp;
+
+    @ManyToOne
+    private Team team;
+
+    private String username;
 }
